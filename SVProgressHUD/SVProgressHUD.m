@@ -211,6 +211,10 @@ static const CGFloat SVProgressHUDLabelSpacing = 8.0f;
     [self sharedView].motionEffectEnabled = motionEffectEnabled;
 }
 
++ (void)setIgnoresWindowLevel:(BOOL)ignoresWindowLevel {
+    [[self sharedView] setIgnoresWindowLevel:ignoresWindowLevel];
+}
+
 #pragma mark - Show Methods
 
 + (void)show {
@@ -1541,6 +1545,10 @@ static const CGFloat SVProgressHUDLabelSpacing = 8.0f;
 
 - (void)setMaxSupportedWindowLevel:(UIWindowLevel)maxSupportedWindowLevel {
     if (!_isInitializing) _maxSupportedWindowLevel = maxSupportedWindowLevel;
+}
+
+- (void)setIgnoresWindowLevel:(BOOL)ignoresWindowLevel {
+  if (!_isInitializing) _ignoresWindowLevel = ignoresWindowLevel;
 }
 
 @end
